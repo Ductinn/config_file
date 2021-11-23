@@ -1,15 +1,22 @@
-  # User define
+# User define
 alias gef="sed -i '1,1d' ~/.gdbinit;  sed -i '1isource /opt/gef/gef.py' ~/.gdbinit; gdb "
 alias pwndbg="sed -i '1,1d' ~/.gdbinit;  sed -i '1isource /opt/pwndbg/gdbinit.py' ~/.gdbinit; gdb "
+## CHANGE DEBUGGER COMMAND
+
+
 local ret_status="%(?:%{$fg_bold[green]%}➜ :%{$fg_bold[red]%}➜ )"
 PROMPT='${ret_status} %{$fg[cyan]%}%c%{$reset_color%} $(git_prompt_info)'
 RPROMPT="[%D{%y/%m/%f}|%@]"
-# function check binary file
+# CONFIG FOR ZSH TO DISPLAY DATE, TIME ON THE COMMAND LINE
+
+# CHECK = FILE + CHECKSEC -> GET BINARY INFOMATION MORE QUICKLY
 check () { file "$1" & checksec "$1" }
 # end function
-# function open windows explorer at current directory
+
+# ONPEN WINDOWS EXPLORERE AT THE CURRENT DIRECTORY
 ew () { explorer.exe . }
-#end function
+# end function
+# ONLY FOR WSL ON WINDOWS
 
 
 export NVM_DIR="$([ -z "${XDG_CONFIG_HOME-}" ] && printf %s "${HOME}/.nvm" || printf %s "${XDG_CONFIG_HOME}/nvm")"
